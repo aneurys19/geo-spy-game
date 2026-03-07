@@ -1,23 +1,47 @@
 import { useState, useEffect, useRef } from 'react';
 
-// --- GAME DATA: Level 2 ---
-const level2Map = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 2, 2, 0, 4, 1],
-  [1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 1],
-  [1, 0, 0, 3, 0, 0, 0, 1, 1, 1, 0, 2, 2, 0, 1],
-  [1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-  [1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 3, 1, 0, 1],
-  [1, 0, 0, 1, 2, 0, 2, 0, 1, 0, 0, 0, 1, 0, 1],
-  [1, 1, 0, 1, 2, 4, 2, 0, 1, 1, 1, 0, 1, 0, 1],
-  [1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0, 1],
-  [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-  [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-  [1, 2, 2, 0, 0, 0, 3, 0, 1, 1, 1, 0, 0, 4, 1],
-  [1, 4, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-];
+// --- DATA: MISSION 1 (COL) & MISSION 2 (DR) ---
+const missions = {
+  1: {
+    title: "MISSION 1: COLOMBIA RECON 🇨🇴",
+    goalScore: 30,
+    gridSize: 10,
+    map: [
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 1, 0, 0, 0, 4, 1],
+      [1, 0, 1, 0, 0, 0, 1, 1, 0, 1],
+      [1, 4, 1, 1, 1, 0, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1, 1, 1, 0, 1, 1],
+      [1, 0, 1, 0, 0, 0, 0, 4, 0, 1],
+      [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+      [1, 0, 4, 0, 0, 0, 1, 0, 0, 1],
+      [1, 0, 1, 1, 1, 0, 0, 0, 0, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    ]
+  },
+  2: {
+    title: "MISSION 2: DOMINICAN REPUBLIC 🇩🇴",
+    goalScore: 40,
+    gridSize: 15,
+    map: [
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 2, 2, 0, 4, 1],
+      [1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 2, 0, 0, 1],
+      [1, 0, 0, 3, 0, 0, 0, 1, 1, 1, 0, 2, 2, 0, 1],
+      [1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      [1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+      [1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 3, 1, 0, 1],
+      [1, 0, 0, 1, 2, 0, 2, 0, 1, 0, 0, 0, 1, 0, 1],
+      [1, 1, 0, 1, 2, 4, 2, 0, 1, 1, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0, 1],
+      [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+      [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+      [1, 2, 2, 0, 0, 0, 3, 0, 1, 1, 1, 0, 0, 4, 1],
+      [1, 4, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    ]
+  }
+};
 
 const ASSETS = {
   SPRITES: '/assets/characters/level1_sprites.png',
@@ -27,11 +51,33 @@ const ASSETS = {
 };
 
 function App() {
+  const [currentLevel, setCurrentLevel] = useState(1);
   const [gameState, setGameState] = useState('START');
   const [playerPosition, setPlayerPosition] = useState({ r: 1, c: 1 });
-  const [grid, setGrid] = useState(level2Map);
+  const [grid, setGrid] = useState(missions[1].map);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(0);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (gameState === 'PLAYING') {
+      timerRef.current = setInterval(() => setTimer(t => t + 1), 1000);
+    } else {
+      clearInterval(timerRef.current);
+    }
+    return () => clearInterval(timerRef.current);
+  }, [gameState]);
+
+  // --- THE FIX: Robust Level Transitions ---
+  const loadMission = (levelNum) => {
+    const data = missions[levelNum];
+    setCurrentLevel(levelNum);
+    setScore(0);
+    setTimer(0);
+    setPlayerPosition({ r: 1, c: 1 });
+    setGrid(data.map.map(row => [...row])); // Clean reset
+    setGameState('PLAYING');
+  };
 
   const movePlayer = (direction) => {
     if (gameState !== 'PLAYING') return;
@@ -41,12 +87,14 @@ function App() {
       if (direction === 'down') r += 1;
       if (direction === 'left') c -= 1;
       if (direction === 'right') c += 1;
+
       if (grid[r][c] === 1) return prev; 
-      if (grid[r][c] === 3) { setGameState('FAILED'); return prev; }
+      if (currentLevel === 2 && grid[r][c] === 3) { setGameState('FAILED'); return prev; }
+      
       if (grid[r][c] === 4) {
         const newScore = score + 10;
         setScore(newScore);
-        if (newScore >= 40) setGameState('WON');
+        if (newScore >= missions[currentLevel].goalScore) setGameState('WON');
         const newGrid = [...grid];
         newGrid[r] = [...newGrid[r]];
         newGrid[r][c] = 0;
@@ -56,27 +104,29 @@ function App() {
     });
   };
 
-  // --- OVERLAYS ---
+  // --- OVERLAY LOGIC ---
   if (gameState !== 'PLAYING') {
     return (
       <div style={fullScreenCenter}>
         <div style={cardStyle}>
-          <h1 style={{margin: '0 0 20px 0'}}>GEO SPY: DR</h1>
-          <div style={startFlex}>
-            <img src={ASSETS.FLAG_DR} style={startFlag} alt="DR Flag" />
-            <button onClick={() => setGameState('MISSION_POPUP')} style={spyBtn}>START MISSION</button>
+          <h1 style={{margin: '0 0 10px 0'}}>
+            {gameState === 'WON' ? 'MISSION SUCCESS!' : gameState === 'FAILED' ? 'MISSION FAILED!' : 'GEO SPY: MOBILE'}
+          </h1>
+          
+          <div style={btnGroup}>
+            {gameState === 'START' && (
+              <button onClick={() => loadMission(1)} style={spyBtn}>START MISSION 1</button>
+            )}
+            
+            {gameState === 'WON' && currentLevel === 1 && (
+              <button onClick={() => loadMission(2)} style={spyBtn}>GO TO MISSION 2 🇩🇴</button>
+            )}
+
+            {(gameState === 'FAILED' || (gameState === 'WON' && currentLevel === 2)) && (
+              <button onClick={() => loadMission(currentLevel)} style={spyBtn}>RETRY MISSION</button>
+            )}
           </div>
         </div>
-
-        {gameState === 'MISSION_POPUP' && (
-          <div style={briefingOverlay}>
-             <div style={briefingCard}>
-                <h2>MISSION START</h2>
-                <p>Find the Huts, stay away from Colombia!</p>
-                <button onClick={() => setGameState('PLAYING')} style={spyBtn}>GO!</button>
-             </div>
-          </div>
-        )}
       </div>
     );
   }
@@ -85,19 +135,22 @@ function App() {
     <div style={gameLayout}>
       <div style={dashboardHeader}>
         <div style={hudWrapper}>
-           <div style={glassHUD}>⭐ {score}/40</div>
+           <div style={glassHUD}>⭐ {score}/{missions[currentLevel].goalScore}</div>
            <div style={glassHUD}>⏱ {timer}s</div>
         </div>
       </div>
       
       <div style={gridWrapper}>
-        <div style={gridStyle}>
+        <div style={gridStyle(missions[currentLevel].gridSize)}>
           {grid.map((row, rIdx) => row.map((cell, cIdx) => {
-            let bg = '#81c784'; let content = null;
-            if (cell === 1) bg = '#388e3c'; 
-            if (cell === 2) bg = '#0288d1';
-            if (cell === 3) content = <img src={ASSETS.FLAG_CO} style={tileFlag} alt="CO Flag" />;
-            if (cell === 4) content = <div style={hutSprite} />;
+            let bg = cell === 1 ? '#388e3c' : cell === 2 ? '#0288d1' : '#81c784';
+            let content = null;
+            if (cell === 3) content = <img src={ASSETS.FLAG_CO} style={tileFlag} alt="CO" />;
+            if (cell === 4) {
+                content = currentLevel === 1 
+                  ? <img src={ASSETS.FLAG_CO} style={tileFlag} alt="Target" /> 
+                  : <div style={hutSprite} />;
+            }
             if (rIdx === playerPosition.r && cIdx === playerPosition.c) {
               content = <div style={{...catSprite, opacity: grid[rIdx][cIdx] === 2 ? 0.6 : 1}} />;
             }
@@ -119,45 +172,24 @@ function App() {
   );
 }
 
-// --- SPRITE POSITIONING ---
-const catSprite = { 
-  width: '100%', height: '100%', 
-  backgroundImage: `url(${ASSETS.SPRITES})`, 
-  backgroundSize: '400% 200%', 
-  backgroundPosition: '0% 0%', 
-  backgroundRepeat: 'no-repeat' 
-};
-
-const hutSprite = { 
-  width: '100%', height: '100%', 
-  backgroundImage: `url(${ASSETS.SPRITES})`, 
-  backgroundSize: '400% 200%', 
-  backgroundPosition: '100% 0%', 
-  backgroundRepeat: 'no-repeat' 
-};
-
-// --- STYLES ---
-const fullScreenCenter = { display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: 'linear-gradient(180deg, #3a7bd5 0%, #00d2ff 100%)', fontFamily: 'sans-serif' };
-const cardStyle = { background: 'white', padding: '40px', borderRadius: '30px', textAlign: 'center', width: '85%', maxWidth: '400px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' };
-const startFlex = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' };
-const startFlag = { width: '120px', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0,0,0,0.2)' };
-const briefingOverlay = { position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.8)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 100 };
-const briefingCard = { background: '#FFD700', padding: '40px', borderRadius: '25px', textAlign: 'center', border: '6px solid #b8860b' };
-const spyBtn = { background: '#222', color: 'white', border: 'none', padding: '15px 40px', fontSize: '1.2rem', borderRadius: '50px', fontWeight: 'bold', cursor: 'pointer' };
-
-const gameLayout = { display: 'flex', flexDirection: 'column', height: '100vh', background: '#3a7bd5' };
-const dashboardHeader = { height: '120px', backgroundImage: `url(${ASSETS.DASHBOARD})`, backgroundSize: '100% auto', backgroundPosition: '0% 0%', backgroundRepeat: 'no-repeat', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '20px' };
-const hudWrapper = { display: 'flex', gap: '15px' };
-const glassHUD = { background: 'rgba(255,255,255,0.3)', padding: '5px 15px', borderRadius: '20px', color: 'white', fontWeight: 'bold' };
-const dashboardFooter = { height: '260px', backgroundImage: `url(${ASSETS.DASHBOARD})`, backgroundSize: '100% auto', backgroundPosition: '0% 48%', backgroundRepeat: 'no-repeat', display: 'flex', justifyContent: 'center', alignItems: 'center' };
-
-const gridWrapper = { flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' };
-const gridStyle = { display: 'grid', gridTemplateColumns: 'repeat(15, 1fr)', gap: '1px', background: '#3e2723', width: '95vw', maxWidth: '480px', aspectRatio: '1/1' };
-const tileStyle = { width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' };
+// --- STYLES (CENTERED & OPTIMIZED) ---
+const gameLayout = { display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw', background: '#3a7bd5', overflow: 'hidden', position: 'fixed', top: 0, left: 0 };
+const dashboardHeader = { flexShrink: 0, height: '15vh', minHeight: '100px', backgroundImage: `url(${ASSETS.DASHBOARD})`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '15px' };
+const gridWrapper = { flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' };
+const dashboardFooter = { flexShrink: 0, height: '35vh', minHeight: '220px', backgroundImage: `url(${ASSETS.DASHBOARD})`, backgroundSize: '100% 100%', backgroundPosition: '0% 48%', display: 'flex', justifyContent: 'center', alignItems: 'center' };
+const gridStyle = (size) => ({ display: 'grid', gridTemplateColumns: `repeat(${size}, 1fr)`, gap: '1px', background: '#3e2723', width: '100%', maxWidth: 'min(90vw, 40vh)', aspectRatio: '1/1' });
+const fullScreenCenter = { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#3a7bd5' };
+const cardStyle = { background: 'white', padding: '40px', borderRadius: '25px', textAlign: 'center', width: '85%', maxWidth: '400px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' };
+const btnGroup = { display: 'flex', flexDirection: 'column', gap: '15px' };
+const spyBtn = { background: '#222', color: 'white', border: 'none', padding: '15px 30px', borderRadius: '50px', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer' };
+const catSprite = { width: '100%', height: '100%', backgroundImage: `url(${ASSETS.SPRITES})`, backgroundSize: '400% 200%', backgroundPosition: '0% 0%', backgroundRepeat: 'no-repeat' };
+const hutSprite = { width: '100%', height: '100%', backgroundImage: `url(${ASSETS.SPRITES})`, backgroundSize: '400% 200%', backgroundPosition: '100% 0%', backgroundRepeat: 'no-repeat' };
+const tileStyle = { width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' };
 const tileFlag = { width: '80%', height: 'auto' };
-
-const dPadGrid = { display: 'grid', gridTemplateColumns: 'repeat(3, 70px)', gridTemplateRows: 'repeat(3, 70px)', gap: '8px' };
-const dirBtn = { width: '70px', height: '70px', borderRadius: '15px', border: 'none', background: '#eee', fontSize: '24px', fontWeight: 'bold', boxShadow: '0 4px #bbb' };
-const compassCenter = { width: '70px', height: '70px', background: '#FFD700', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.5rem', border: '3px solid #b8860b' };
+const hudWrapper = { display: 'flex', gap: '10px' };
+const glassHUD = { background: 'rgba(255,255,255,0.3)', padding: '5px 15px', borderRadius: '20px', color: 'white', fontWeight: 'bold' };
+const dPadGrid = { display: 'grid', gridTemplateColumns: 'repeat(3, 60px)', gap: '10px' };
+const dirBtn = { width: '60px', height: '60px', borderRadius: '15px', background: '#eee', fontSize: '24px', fontWeight: 'bold', border: 'none', boxShadow: '0 4px #bbb' };
+const compassCenter = { width: '60px', height: '60px', background: '#FFD700', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' };
 
 export default App;
