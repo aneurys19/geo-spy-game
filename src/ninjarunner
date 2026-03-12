@@ -1,0 +1,82 @@
+import React, { useState, useEffect, useRef } from 'react';
+
+export default function NinjaRunner({ onExit, flagImage }) {
+  const [score, setScore] = useState(0);
+  const [isJumping, setIsJumping] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [obstaclePos, setObstaclePos] = useState(100);
+  
+  const gameRef = useRef();
+
+  // Handle Jump
+  const jump = () => {
+    if (isJumping || isGameOver) return;
+    setIsJumping(true);
+    setTimeout(() => setIsJumping(false), 500);
+  };
+
+  useEffect(() => {
+    if (isGameOver) return;
+
+    const interval = setInterval(() => {
+      setObstaclePos((pos) => {
+        if (pos < -5) {
+          setScore(s => s + 1); // Point for passing obstacle
+          return 100;
+        }
+        return pos - 2; // Speed of the runner
+      });
+    }, 20);
+
+    return () => clearInterval(interval);
+  }, [isGameOver]);
+
+  // Collision Detection
+  useEffect(() => {
+    if (obstaclePos > 10 && obstaclePos < 25 && !isJumping) {
+      setIsGameOver(true);
+    }
+  }, [obstaclePos, isJumping]);
+
+  return (
+    <div onClick={jump} style={runnerContainer}>
+      <div style={header}>
+        <span>FLAGS SECURED: {score}</span>
+        <button onClick={onExit} style={exitBtn}>X</button>
+      </div>
+
+      <div style={track}>
+        {/* The Ninja */}
+        <div style={{
+          ...ninjaStyle,
+          bottom: isJumping ? '80px' : '0px',
+          transition: isJumping ? 'bottom 0.2s ease-out' : 'bottom 0.3s ease-in'
+        }}>🐱</div>
+
+        {/* The Obstacle (The Flag) */}
+        <div style={{...flagStyle, left: `${obstaclePos}%`}}>
+           <img src={flagImage} style={{width: '30px'}} alt="target" />
+        </div>
+      </div>
+
+      {isGameOver && (
+        <div style={overlay}>
+          <h2>MISSION FAILED</h2>
+          <button onClick={() => {setScore(0); setObstaclePos(100); setIsGameOver(false);}} style={retryBtn}>TRY AGAIN</button>
+        </div>
+      )}
+      <p style={hint}>Tap to Jump over the Flags!</p>
+    </div>
+  );
+}
+
+// --- STYLES ---
+const runnerContainer = { position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'#1a1a1a', color:'#fff', zIndex: 1000, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', fontFamily:'sans-serif' };
+const header = { position:'absolute', top:'20px', width:'90%', display:'flex', justifyContent:'space-between', fontSize:'1.2rem', fontWeight:'bold' };
+const exitBtn = { background:'none', border:'1px solid #fff', color:'#fff', borderRadius:'5px', padding:'5px 10px' };
+const track = { position:'relative', width:'90%', height:'150px', borderBottom:'4px solid #fff', overflow:'hidden' };
+const ninjaStyle = { position:'absolute', left:'20px', fontSize:'2.5rem' };
+const flagStyle = { position:'absolute', bottom:'0px' };
+const overlay = { position:'absolute', textAlign:'center', background:'rgba(0,0,0,0.8)', padding:'20px', borderRadius:'15px' };
+const retryBtn = { padding:'10px 20px', background:'#ffd54f', border:'none', borderRadius:'5px', fontWeight:'bold' };
+const hint = { marginTop:'20px', color:'#888' };

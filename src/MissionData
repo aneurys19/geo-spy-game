@@ -1,0 +1,173 @@
+// src/MissionData.js
+export const missions = {
+  1: {
+    id: 1, type: 'FREE', title: "MISSION 1: COLOMBIA 🇨🇴", flag: 'https://flagcdn.com/w80/co.png', deco: '/assets/background/colombia_deco.png',
+    bg: '#0a2e0a', accent: '#1b5e20', particle: '#a5d6a7',
+    facts: ["Colombia is the world's leading source of emeralds!", "It is the only country in South America with coastlines on both oceans.", "Colombia is the second most biodiverse country in the world!", "Caño Cristales is known as the River of Five Colors!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,2,0,0,0,0,4,1],[1,0,1,0,0,2,1,1,0,1],[1,4,1,0,0,0,0,0,2,1],[1,0,0,0,2,0,1,0,1,1],[1,2,1,0,0,0,0,4,0,1],[1,0,0,0,1,1,0,2,0,1],[1,4,0,2,0,0,1,0,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  2: {
+    id: 2, type: 'FREE', title: "MISSION 2: DOMINICAN REPUBLIC 🇩🇴", flag: 'https://flagcdn.com/w80/do.png', deco: '/assets/background/dr_deco.png',
+    bg: '#004d40', accent: '#00796b', particle: '#80cbc4',
+    facts: ["The DR is the most visited destination in the Caribbean!", "It's the only flag in the world that features a Bible.", "Santo Domingo is the oldest European settlement in the Americas.", "Baseball is the most popular sport in the Dominican Republic!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,4,0,0,0,0,0,0,4,1],[1,1,1,0,0,1,0,1,0,1],[1,0,0,0,2,0,2,0,0,1],[1,0,1,0,0,4,0,0,1,1],[1,0,1,0,2,0,2,0,1,1],[1,0,0,0,0,0,0,0,0,1],[1,4,1,1,1,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  3: {
+    id: 3, type: 'FREE', title: "MISSION 3: ICELAND 🇮🇸", flag: 'https://flagcdn.com/w80/is.png', deco: '/assets/background/iceland_deco.png',
+    bg: '#012a4a', accent: '#013a63', particle: '#ffffff',
+    facts: ["Iceland is known as the Land of Fire and Ice!", "It is home to one of the world's oldest parliaments.", "Iceland has no mosquitoes at all!", "The Northern Lights are visible in Iceland for 8 months of the year."],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,4,0,0,0,1],[1,0,1,1,0,1,1,1,0,1],[1,4,1,0,0,0,0,1,0,1],[1,0,0,0,2,2,0,0,4,1],[1,0,1,1,2,2,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,4,0,1,1,1,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  4: {
+    id: 4, type: 'FREE', title: "MISSION 4: JAPAN 🇯🇵", flag: 'https://flagcdn.com/w80/jp.png', deco: '/assets/background/japan_deco.png',
+    bg: '#2d0a1a', accent: '#4a1127', particle: '#ffcdd2',
+    facts: ["Japan has over 5 million vending machines!", "The Shinkansen bullet trains are among the fastest in the world.", "Japan consists of over 6,800 islands.", "Mount Fuji is actually an active volcano!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,0,4,1,4,0,0,1],[1,0,1,1,0,1,0,1,0,1],[1,0,1,0,0,0,0,1,0,1],[1,4,0,0,2,2,0,0,4,1],[1,1,1,0,2,2,0,1,1,1],[1,0,0,0,0,0,0,0,0,1],[1,0,1,1,1,1,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  5: {
+    id: 5, type: 'FREE', title: "MISSION 5: EGYPT 🇪🇬", flag: 'https://flagcdn.com/w80/eg.png', deco: '/assets/background/egypt_deco.png',
+    bg: '#5d4037', accent: '#8d6e63', particle: '#ffd54f',
+    facts: ["The Great Pyramid of Giza was the tallest man-made structure for 3,800 years!", "Ancient Egyptians invented the 365-day calendar.", "The Nile River is the longest river in the world.", "Egyptians used hieroglyphics as a form of writing!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,4,0,0,0,1,0,0,4,1],[1,0,1,1,0,1,0,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,0,1,4,2,2,4,1,0,1],[1,0,1,0,2,2,0,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,1,1,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  6: {
+    id: 6, type: 'PREMIUM', title: "MISSION 6: FRANCE 🇫🇷", flag: 'https://flagcdn.com/w80/fr.png', deco: '/assets/background/france_deco.png',
+    bg: '#05052d', accent: '#21215a', particle: '#ffffff',
+    facts: ["France is the most visited country in the world!", "The Louvre is the world's largest art museum.", "France produces over 1,600 types of cheese!", "The Eiffel Tower was originally intended to be temporary."],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,4,1],[1,0,1,1,1,0,1,1,0,1],[1,0,1,4,0,0,0,1,0,1],[1,0,1,0,2,2,0,1,0,1],[1,4,0,0,2,2,0,0,4,1],[1,0,1,1,1,1,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,4,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  7: {
+    id: 7, type: 'PREMIUM', title: "MISSION 7: BRAZIL 🇧🇷", flag: 'https://flagcdn.com/w80/br.png', deco: '/assets/background/brazil_deco.png',
+    bg: '#004b23', accent: '#38b000', particle: '#ffff3f',
+    facts: ["Brazil has the world's largest rainforest!", "The Amazon River is in Brazil.", "Soccer is the most popular sport.", "Brazil is the largest coffee producer."],
+    map: [[1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,4,1],[1,0,1,1,1,1,1,1,1,1,0,1],[1,0,1,0,0,0,0,0,0,1,0,1],[1,4,1,0,2,2,2,2,0,1,4,1],[1,0,1,0,2,1,1,2,0,1,0,1],[1,0,1,0,2,1,1,2,0,1,0,1],[1,0,0,0,2,2,2,2,0,0,0,1],[1,1,1,0,0,0,0,0,0,1,1,1],[1,0,0,0,1,1,1,1,0,0,0,1],[1,4,0,0,0,0,0,0,0,0,4,1],[1,1,1,1,1,1,1,1,1,1,1,1]]
+  },
+  8: {
+    id: 8, type: 'PREMIUM', title: "MISSION 8: USA 🇺🇸", flag: 'https://flagcdn.com/w80/us.png', deco: '/assets/background/usa_deco.png',
+    bg: '#002868', accent: '#bf0a30', particle: '#ffffff',
+    facts: ["The US has the world's largest economy.", "The Grand Canyon can be seen from space!", "The US flag has 50 stars for 50 states.", "The Statue of Liberty was a gift from France."],
+    map: [[1,1,1,1,1,1,1,1,1,1,1,1],[1,4,0,0,0,0,0,0,0,0,4,1],[1,0,1,1,1,0,0,1,1,1,0,1],[1,0,1,0,0,0,0,0,0,1,0,1],[1,0,0,0,2,2,2,2,0,0,0,1],[1,0,1,0,2,4,4,2,0,1,0,1],[1,0,1,0,2,4,4,2,0,1,0,1],[1,0,0,0,2,2,0,2,0,0,0,1],[1,0,1,0,0,0,0,0,0,1,0,1],[1,0,1,1,1,0,0,1,1,1,0,1],[1,4,0,0,0,0,0,0,0,0,4,1],[1,1,1,1,1,1,1,1,1,1,1,1]]
+  },
+  9: {
+    id: 9, type: 'PREMIUM', title: "MISSION 9: UK 🇬🇧", flag: 'https://flagcdn.com/w80/gb.png', deco: '/assets/background/uk_deco.png',
+    bg: '#1a1a1a', accent: '#333333', particle: '#ffffff',
+    facts: ["Big Ben is actually the name of the bell, not the clock tower!", "The UK is the first country to use postage stamps.", "London has over 170 museums!", "Windsor Castle is the oldest occupied castle in the world."],
+    map: [
+      [1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,4,0,0,1,0,0,1,0,0,4,1],
+      [1,0,1,0,1,0,1,1,0,1,0,1],
+      [1,0,1,0,0,0,0,0,0,1,0,1],
+      [1,0,1,1,1,2,2,1,1,1,0,1],
+      [1,0,0,0,0,0,4,2,0,0,0,1],
+      [1,0,0,0,2,0,2,2,0,0,0,1],
+      [1,0,1,1,1,0,0,1,1,1,0,1], // Gates are now open at (row 7, col 5 & 6)
+      [1,0,1,0,0,0,0,0,0,1,0,1],
+      [1,0,1,0,1,1,0,1,0,1,0,1],
+      [1,4,0,0,0,0,0,0,0,0,4,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1]
+    ]
+  },
+  10: {
+    id: 10, 
+    type: 'PREMIUM', 
+    title: "MISSION 10: MEXICO 🇲🇽", 
+    flag: 'https://flagcdn.com/w80/mx.png', 
+    deco: '/assets/background/mexico_deco.png',
+    bg: '#1b5e20', 
+    accent: '#2e7d32', 
+    particle: '#fb8c00',
+    facts: [
+      "Mexico introduced chocolate, corn, and chilies to the world!", 
+      "The Great Pyramid of Cholula is the largest in the world by volume.", 
+      "Mexico is home to the world's smallest volcano, Cuexcomate.", 
+      "Millions of Monarch butterflies migrate to Mexico every year."
+    ],
+    map: [
+      [1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,2,0,2,0,0,2,0,2,0,1], // Gates opened at Col 3 and Col 8
+      [1,4,0,4,0,0,0,0,4,0,4,1], // Path cleared directly to the flags (4)
+      [1,0,2,0,2,0,0,2,0,2,0,1],
+      [1,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,0,0,0,1,1,0,0,0,0,1],
+      [1,0,2,0,2,1,1,2,0,2,0,1],
+      [1,4,0,4,0,0,0,0,4,0,4,1], // Path cleared directly to the flags (4)
+      [1,0,2,0,2,0,0,2,0,2,0,1], // Gates opened at Col 3 and Col 8
+      [1,0,0,0,0,0,0,0,0,0,0,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1]
+    ]
+  },
+  11: {
+    id: 11, type: 'PREMIUM', title: "MISSION 11: AUSTRALIA 🇦🇺", flag: 'https://flagcdn.com/w80/au.png', deco: '/assets/background/australia_deco.png',
+    bg: '#e65100', accent: '#bf360c', particle: '#ffe0b2',
+    facts: ["Australia is the only continent covered by a single country.", "Over 80% of Australia's plants and animals are unique to the island.", "The Great Barrier Reef is the largest living structure on Earth.", "Australia has over 10,000 beaches!"],
+    map: [[1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,4,0,0,0,0,0,0,0,0,0,0,4,1],[1,0,1,1,1,1,0,0,1,1,1,1,0,1],[1,0,1,0,0,0,0,0,0,0,0,1,0,1],[1,0,1,0,2,2,2,2,2,2,0,1,0,1],[1,0,1,0,2,4,0,0,4,2,0,1,0,1],[1,0,0,0,2,0,0,0,0,2,0,0,0,1],[1,0,0,0,2,0,4,4,0,2,0,0,0,1],[1,0,1,0,2,4,0,0,4,2,0,1,0,1],[1,0,1,0,2,2,0,2,2,2,0,1,0,1],[1,0,1,0,0,0,0,0,0,0,0,1,0,1],[1,0,1,1,1,1,0,0,1,1,1,1,0,1],[1,4,0,0,0,0,0,0,0,0,0,0,4,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
+  },
+  12: {
+    id: 12, type: 'PREMIUM', title: "MISSION 12: CHINA 🇨🇳", flag: 'https://flagcdn.com/w80/cn.png', deco: '/assets/background/china_deco.png',
+    bg: '#b71c1c', accent: '#f44336', particle: '#ffeb3b',
+    facts: ["The Great Wall is over 13,000 miles long!", "China is the birthplace of paper, silk, and gunpowder.", "Giant Pandas are only found in the wild in China.", "China has the world's largest high-speed rail network."],
+    map: [
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,4,0,0,0,0,1,1,1,1,0,0,0,0,4,1],
+      [1,0,1,1,1,0,0,0,0,0,0,1,1,1,0,1],
+      [1,0,1,4,1,0,1,1,1,1,0,1,4,1,0,1],
+      [1,0,1,0,1,0,1,0,0,1,0,1,0,1,0,1],
+      [1,0,0,0,0,0,1,4,4,1,0,0,0,0,0,1],
+      [1,1,1,1,1,0,1,0,0,1,0,1,1,1,1,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,1,1,1,1,0,1,0,0,1,0,1,1,1,1,1],
+      [1,0,0,0,0,0,1,4,4,1,0,0,0,0,0,1],
+      [1,0,1,0,1,0,1,1,1,1,0,1,0,1,0,1],
+      [1,0,1,4,1,0,0,0,0,0,0,1,4,1,0,1],
+      [1,0,1,1,1,0,1,1,1,1,0,1,1,1,0,1],
+      [1,4,0,0,0,0,0,0,0,0,0,0,0,0,4,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ]
+  },
+  13: {
+    id: 13, type: 'PREMIUM', title: "MISSION 13: ITALY 🇮🇹", flag: 'https://flagcdn.com/w80/it.png', deco: '/assets/background/italy_deco.png',
+    bg: '#1b5e20', accent: '#ffffff', particle: '#cfd8dc',
+    facts: ["Italy has more UNESCO World Heritage sites than any other country.", "The Vatican City in Rome is the world's smallest country.", "Italy is the world's largest wine producer.", "The pizza was invented in Naples in the 1800s!"],
+    map: [
+      [1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,0,0,0,4,0,0,4,0,0,0,1],
+      [1,0,1,1,0,1,1,1,1,1,0,1], // Changed [2,1] to 0 so you can go DOWN from start
+      [1,0,1,0,0,0,0,0,0,1,0,1],
+      [1,4,1,0,2,2,2,2,0,1,4,1],
+      [1,0,1,0,2,4,4,2,0,1,0,1],
+      [1,0,1,0,2,0,0,2,0,1,0,1],
+      [1,0,1,0,2,0,2,2,0,1,0,1], // Opening to the center remains
+      [1,0,1,0,0,0,0,0,0,1,0,1],
+      [1,1,1,1,1,1,1,1,1,1,0,1],
+      [1,0,0,0,4,0,0,4,0,0,0,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1]
+    ]
+  },
+  14: {
+    id: 14, type: 'PREMIUM', title: "MISSION 14: CANADA 🇨🇦", flag: 'https://flagcdn.com/w80/ca.png', deco: '/assets/background/canada_deco.png',
+    bg: '#b71c1c', accent: '#ffffff', particle: '#ffcdd2',
+    facts: ["Canada has the longest coastline in the world.", "It produces 71% of the world's pure maple syrup.", "Canada has more lakes than the rest of the world combined!", "The national sport is Lacrosse (Summer) and Ice Hockey (Winter)."],
+    map: [
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,4,0,0,1,0,0,0,0,1,0,0,4,1],
+      [1,0,1,0,1,0,1,1,0,1,0,1,0,1],
+      [1,0,1,0,0,0,4,4,0,0,0,1,0,1],
+      [1,0,1,1,1,1,0,0,1,1,1,1,0,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,1,1,0,1,1,2,2,1,1,0,1,1,1],
+      [1,1,1,0,1,1,2,2,1,1,0,1,1,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,1,1,1,1,0,0,1,1,1,1,0,1],
+      [1,0,1,0,0,0,4,4,0,0,0,1,0,1],
+      [1,0,1,0,1,0,1,1,0,1,0,1,0,1],
+      [1,4,0,0,1,0,0,0,0,1,0,0,4,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ]
+  }
+};
+;
+
+export const NINJA_RANKS = ["WHITE BELT", "YELLOW BELT", "GREEN BELT", "BLUE BELT", "RED BELT", "BLACK BELT", "ELITE SPY", "GEOSPY MASTER", "GLOBAL LEGEND", "GRANDMASTER"];
+export const MOVE_TARGETS = { 1: 40, 2: 35, 3: 45, 4: 50, 5: 55, 6: 60, 7: 85, 8: 90, 9: 100, 10: 110, 11: 140 };

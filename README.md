@@ -43,10 +43,5 @@ Resolved complex visual regressions inherent in 2D grid rendering.
 
 ---
 
-## 💻 Local Setup
-1. Clone the repo: `git clone [Your Repo URL]`
-2. Install dependencies: `npm install`
-3. Run dev server: `npm run dev`
-
 ---
 **Developer Note:** Managed and Architected by Aneurys S. as part of a Software Engineering & Project Management portfolio.
