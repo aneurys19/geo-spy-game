@@ -3,100 +3,59 @@ import React, { useState } from 'react';
 // --- MISSION DATA ---
 const missions = {
   1: {
-    id: 1,
-    title: "MISSION 1: COLOMBIA 🇨🇴",
-    subtitle: "Ninja Infiltration. Collect all 4 National Flags.",
-    flag: 'https://flagcdn.com/w80/co.png',
-    theme: 'jungle',
-    facts: [
-      "Colombia is the world's leading source of emeralds!",
-      "It is the only country in South America with coastlines on both oceans.",
-      "Colombia is the second most biodiverse country in the world!",
-      "The Caño Cristales river is known as the River of Five Colors!"
-    ],
-    map: [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 0, 2, 0, 0, 0, 0, 4, 1],
-      [1, 0, 1, 0, 0, 2, 1, 1, 0, 1],
-      [1, 4, 1, 0, 0, 0, 0, 0, 2, 1],
-      [1, 0, 0, 0, 2, 0, 1, 0, 1, 1],
-      [1, 2, 1, 0, 0, 0, 0, 4, 0, 1],
-      [1, 0, 0, 0, 1, 1, 0, 2, 0, 1],
-      [1, 4, 0, 2, 0, 0, 1, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    ]
+    id: 1, title: "MISSION 1: COLOMBIA 🇨🇴", subtitle: "Ninja Infiltration. Collect all 4 National Flags.",
+    flag: 'https://flagcdn.com/w80/co.png', deco: '/assets/background/colombia_deco.png',
+    bg: '#0a2e0a', accent: '#1b5e20', particle: '#a5d6a7',
+    facts: ["Colombia is the world's leading source of emeralds!", "It is the only country in South America with coastlines on both oceans.", "Colombia is the second most biodiverse country in the world!", "Caño Cristales is known as the River of Five Colors!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,2,0,0,0,0,4,1],[1,0,1,0,0,2,1,1,0,1],[1,4,1,0,0,0,0,0,2,1],[1,0,0,0,2,0,1,0,1,1],[1,2,1,0,0,0,0,4,0,1],[1,0,0,0,1,1,0,2,0,1],[1,4,0,2,0,0,1,0,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
   },
   2: {
-    id: 2,
-    title: "MISSION 2: DOMINICAN REPUBLIC 🇩🇴",
-    subtitle: "Coastal Stealth. Secure the 4 Caribbean Flags.",
-    flag: 'https://flagcdn.com/w80/do.png',
-    theme: 'beach',
-    facts: [
-      "The DR is the most visited destination in the Caribbean!",
-      "It's the only flag in the world that features a Bible.",
-      "Santo Domingo is the oldest European settlement in the Americas.",
-      "Baseball is the most popular sport in the Dominican Republic!"
-    ],
-    map: [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 4, 0, 0, 0, 0, 0, 0, 4, 1],
-      [1, 1, 1, 0, 0, 1, 0, 1, 0, 1],
-      [1, 0, 0, 0, 2, 0, 2, 0, 0, 1],
-      [1, 0, 1, 0, 0, 4, 0, 0, 1, 1],
-      [1, 0, 1, 0, 2, 0, 2, 0, 1, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 4, 1, 1, 1, 0, 1, 1, 1, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    ]
+    id: 2, title: "MISSION 2: DOMINICAN REPUBLIC 🇩🇴", subtitle: "Coastal Stealth. Secure the 4 Caribbean Flags.",
+    flag: 'https://flagcdn.com/w80/do.png', deco: '/assets/background/dr_deco.png',
+    bg: '#004d40', accent: '#00796b', particle: '#80cbc4',
+    facts: ["The DR is the most visited destination in the Caribbean!", "It's the only flag in the world that features a Bible.", "Santo Domingo is the oldest European settlement in the Americas.", "Baseball is the most popular sport in the Dominican Republic!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,4,0,0,0,0,0,0,4,1],[1,1,1,0,0,1,0,1,0,1],[1,0,0,0,2,0,2,0,0,1],[1,0,1,0,0,4,0,0,1,1],[1,0,1,0,2,0,2,0,1,1],[1,0,0,0,0,0,0,0,0,1],[1,4,1,1,1,0,1,1,1,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
   },
   3: {
-    id: 3,
-    title: "MISSION 3: ICELAND 🇮🇸",
-    subtitle: "Tundra Trek. Collect 4 Arctic Flags.",
-    flag: 'https://flagcdn.com/w80/is.png',
-    theme: 'arctic',
-    facts: [
-      "Iceland is known as the Land of Fire and Ice!",
-      "It is home to one of the world's oldest parliaments, founded in 930 AD.",
-      "Iceland has no mosquitoes at all!",
-      "The Northern Lights are visible in Iceland for 8 months of the year."
-    ],
-    map: [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 0, 0, 0, 4, 0, 0, 0, 1],
-      [1, 0, 1, 1, 0, 1, 1, 1, 0, 1],
-      [1, 4, 1, 0, 0, 0, 0, 1, 0, 1],
-      [1, 0, 0, 0, 2, 2, 0, 0, 4, 1],
-      [1, 0, 1, 1, 2, 2, 1, 1, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 4, 0, 1, 1, 1, 1, 1, 0, 1],
-      [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    ]
+    id: 3, title: "MISSION 3: ICELAND 🇮🇸", subtitle: "Tundra Trek. Collect 4 Arctic Flags.",
+    flag: 'https://flagcdn.com/w80/is.png', deco: '/assets/background/iceland_deco.png',
+    bg: '#012a4a', accent: '#013a63', particle: '#ffffff',
+    facts: ["Iceland is known as the Land of Fire and Ice!", "It is home to one of the world's oldest parliaments.", "Iceland has no mosquitoes at all!", "The Northern Lights are visible in Iceland for 8 months of the year."],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,4,0,0,0,1],[1,0,1,1,0,1,1,1,0,1],[1,4,1,0,0,0,0,1,0,1],[1,0,0,0,2,2,0,0,4,1],[1,0,1,1,2,2,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,4,0,1,1,1,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  4: {
+    id: 4, title: "MISSION 4: JAPAN 🇯🇵", subtitle: "Neon Shadows. Recover 4 Shogun Flags.",
+    flag: 'https://flagcdn.com/w80/jp.png', deco: '/assets/background/japan_deco.png',
+    bg: '#2d0a1a', accent: '#4a1127', particle: '#ffcdd2',
+    facts: ["Japan has over 5 million vending machines!", "The Shinkansen bullet trains are among the fastest in the world.", "Japan consists of over 6,800 islands.", "Mount Fuji is actually an active volcano!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,0,0,0,4,1,4,0,0,1],[1,0,1,1,0,1,0,1,0,1],[1,0,1,0,0,0,0,1,0,1],[1,4,0,0,2,2,0,0,4,1],[1,1,1,0,2,2,0,1,1,1],[1,0,0,0,0,0,0,0,0,1],[1,0,1,1,1,1,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
+  },
+  5: {
+    id: 5, title: "MISSION 5: EGYPT 🇪🇬", subtitle: "Desert Stealth. Locate 4 Golden Flags.",
+    flag: 'https://flagcdn.com/w80/eg.png', deco: '/assets/background/egypt_deco.png',
+    bg: '#5d4037', accent: '#8d6e63', particle: '#ffd54f',
+    facts: ["The Great Pyramid of Giza was the tallest man-made structure for 3,800 years!", "Ancient Egyptians invented the 365-day calendar.", "The Nile River is the longest river in the world.", "Egyptians used hieroglyphics as a form of writing!"],
+    map: [[1,1,1,1,1,1,1,1,1,1],[1,4,0,0,0,1,0,0,4,1],[1,0,1,1,0,1,0,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,0,1,4,2,2,4,1,0,1],[1,0,1,0,2,2,0,1,0,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,0,0,0,0,1,1,1],[1,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1]]
   }
 };
 
-const ASSETS = {
-  SPRITES: '/assets/characters/level1_sprites.png',
-  DASHBOARD: '/assets/ui/level1_dashboard.png',
-  DECO: '/assets/background/colombia_deco.png' 
-};
+const ASSETS = { SPRITES: '/assets/characters/level1_sprites.png' };
 
-// Tree Leaf Component for Visual Polish
-const AnimatedTree = () => (
-  <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-    <span style={{ fontSize: '1.2rem', zIndex: 2 }}>🌳</span>
-    <div className="leaf leaf-1">🍃</div>
-    <div className="leaf leaf-2">🍃</div>
+// --- COMPONENTS ---
+const GlobalOverlay = ({ color }) => (
+  <div className="global-overlay">
+    {[...Array(40)].map((_, i) => (
+      <div key={i} className="dot" style={{ backgroundColor: color, left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${5 + Math.random() * 5}s` }} />
+    ))}
   </div>
 );
 
+const AnimatedTree = () => (<div className="tile-content"><span style={{fontSize:'1.2rem',zIndex:2}}>🌳</span><div className="leaf leaf-1">🍃</div><div className="leaf leaf-2">🍃</div></div>);
+const CherryBlossom = () => (<div className="tile-content"><span style={{fontSize:'1.2rem',zIndex:2}}>🌸</span><div className="petal petal-1">🌸</div><div className="petal petal-2">🌸</div></div>);
+
 export default function App() {
-  const [currentLevel, setCurrentLevel] = useState(1);
   const [gameState, setGameState] = useState('START');
+  const [currentLevel, setCurrentLevel] = useState(1);
   const [playerPosition, setPlayerPosition] = useState({ r: 1, c: 1 });
   const [grid, setGrid] = useState(missions[1].map);
   const [score, setScore] = useState(0);
@@ -105,100 +64,97 @@ export default function App() {
   const speakFact = (text) => {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.pitch = 1.2; utterance.rate = 1.1;
+    utterance.pitch = 1.2; utterance.rate = 1.2;
     window.speechSynthesis.speak(utterance);
   };
 
   const startMission = (levelId) => {
     const targetLevel = missions[levelId];
-    setCurrentLevel(levelId);
-    setScore(0);
-    setPlayerPosition({ r: 1, c: 1 });
+    setCurrentLevel(levelId); setScore(0); setPlayerPosition({ r: 1, c: 1 });
     setGrid(targetLevel.map.map(row => [...row]));
-    setGameState('PLAYING');
-    setShowFact(null);
+    setGameState('PLAYING'); setShowFact(null);
   };
 
   const movePlayer = (direction) => {
     if (gameState !== 'PLAYING' || showFact) return;
     setPlayerPosition((prev) => {
       let { r, c } = prev;
-      if (direction === 'up') r -= 1;
-      if (direction === 'down') r += 1;
-      if (direction === 'left') c -= 1;
-      if (direction === 'right') c += 1;
+      if (direction === 'up') r -= 1; if (direction === 'down') r += 1;
+      if (direction === 'left') c -= 1; if (direction === 'right') c += 1;
       if (grid[r][c] === 1 || grid[r][c] === 2) return prev;
       if (grid[r][c] === 4) {
-        const newScore = score + 10;
-        setScore(newScore);
+        const newScore = score + 10; setScore(newScore);
         const factText = missions[currentLevel].facts[(newScore / 10) - 1];
-        setShowFact(factText);
-        speakFact(factText);
-        const newGrid = [...grid];
-        newGrid[r] = [...newGrid[r]];
-        newGrid[r][c] = 0;
+        setShowFact(factText); speakFact(factText);
+        const newGrid = [...grid]; newGrid[r] = [...newGrid[r]]; newGrid[r][c] = 0;
         setGrid(newGrid);
-        if (!newGrid.flat().includes(4)) {
-            setTimeout(() => { speakFact("Mission Success!"); setGameState('WON'); }, 1000);
-        }
+        if (!newGrid.flat().includes(4)) setTimeout(() => { speakFact("Mission Success!"); setGameState('WON'); }, 800);
       }
       return { r, c };
     });
   };
 
-  if (gameState !== 'PLAYING') {
-    const mission = missions[currentLevel];
+  const currentMission = missions[currentLevel];
+
+  // --- FRONT SCREEN: WITH COUNTRY NAMES ---
+  if (gameState === 'START' || gameState === 'WON') {
     return (
       <div style={fullScreenCenter}>
         <div style={premiumCard}>
-          <div style={tagLine}>SECURE LINE ENCRYPTED</div>
-          <h1 style={titleStyle}>{gameState === 'WON' ? 'MISSION SUCCESS!' : mission.title}</h1>
-          <div style={infoBox}><p style={subtitleStyle}>{mission.subtitle}</p></div>
-          {gameState === 'WON' && currentLevel < 3 ? (
-            <button onClick={() => startMission(currentLevel + 1)} style={goldBtn}>PROCEED TO NEXT MISSION</button>
-          ) : (
-            <button onClick={() => startMission(currentLevel)} style={goldBtn}>
-              {gameState === 'START' ? 'INITIALIZE NINJA' : 'RETRY MISSION'}
-            </button>
-          )}
+          <h1 style={{color: '#1a237e', marginBottom: '10px'}}>{gameState === 'WON' ? 'SUCCESS!' : 'GEOSPY NINJA'}</h1>
+          <p style={{color: '#666', marginBottom: '20px', fontSize: '0.9rem'}}>SELECT YOUR MISSION LOCATION</p>
+          <div style={missionSelectorGrid}>
+            {Object.values(missions).map(m => {
+              // Extract country name from title (e.g., "COLOMBIA")
+              const countryName = m.title.split(': ')[1].split(' ')[0];
+              return (
+                <button key={m.id} onClick={() => startMission(m.id)} style={missionCard}>
+                  <div style={{fontSize: '1.4rem'}}>{m.title.split(' ').pop()}</div>
+                  <div style={{fontWeight: 'bold', fontSize: '0.75rem', color: '#1a237e', margin: '4px 0'}}>{countryName}</div>
+                  <div style={{fontSize: '0.6rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px'}}>DEPLOY</div>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div style={gameLayout}>
-      <div style={decoLayer}>
-        <div style={{ ...decoPiece, top: '2%', left: '-20px', backgroundPosition: 'top left' }} />
-        <div style={{ ...decoPiece, top: '35%', right: '-30px', backgroundPosition: 'bottom right' }} />
+    <div style={{...gameLayout, backgroundColor: currentMission.bg}}>
+      <GlobalOverlay color={currentMission.particle} />
+      
+      <div style={decoContainer}>
+        <div style={{...decoPiece, top:'5%', left:'-20px', backgroundImage:`url(${currentMission.deco})` }} />
+        <div style={{...decoPiece, bottom:'30%', right:'-30px', backgroundImage:`url(${currentMission.deco})` }} />
       </div>
 
-      <div style={dashboardHeader}><div style={glassHUD}>⭐ {score}</div></div>
+      <div style={headerStyle}><div style={glassPill}>⭐ {score}</div></div>
+      
       <div style={gridWrapper}>
         <div style={gridContainer}>
           {showFact && (
             <div style={factOverlay}>
               <div style={factCard}>
-                <div style={factTitle}>INTEL RECEIVED</div>
                 <p style={factText}>{showFact}</p>
-                <button style={factCloseBtn} onClick={() => setShowFact(null)}>CONTINUE</button>
+                <button style={closeBtn} onClick={() => setShowFact(null)}>CONTINUE</button>
               </div>
             </div>
           )}
-          <div className="blueprint-overlay" /><div className="scanner-line" />
-          <div style={gridStyle}>
+          <div style={gridInner}>
             {grid.map((row, rIdx) => row.map((cell, cIdx) => (
               <div key={`${rIdx}-${cIdx}`} style={{
-                ...tileStyle, 
-                backgroundColor: cell === 1 ? (currentLevel === 3 ? '#b3e5fc' : '#1b5e20') : cell === 2 ? '#795548' : (currentLevel === 3 ? '#e1f5fe' : '#a5d6a7')
+                ...tileBase, 
+                backgroundColor: cell === 1 ? currentMission.accent : cell === 2 ? '#795548' : 'rgba(255,255,255,0.05)'
               }}>
-                {cell === 1 && (currentLevel === 3 ? "🏔️" : <AnimatedTree />)}
-                {cell === 2 && "🪨"}
-                {cell === 4 && <img src={missions[currentLevel].flag} alt="flag" className="intel-flag" />}
+                {cell === 1 && (
+                  currentLevel === 3 ? "🏔️" : currentLevel === 4 ? <CherryBlossom /> : currentLevel === 5 ? "▲" : <AnimatedTree />
+                )}
+                {cell === 2 && (currentLevel === 4 ? "⛩️" : currentLevel === 5 ? "🏺" : "🪨")}
+                {cell === 4 && <img src={currentMission.flag} style={{width:'70%', borderRadius:'2px'}} alt="flag" />}
                 {rIdx === playerPosition.r && cIdx === playerPosition.c && (
-                   <div style={spriteAperture}>
-                     <div style={{...spriteSheet, transform: 'translateX(0%)'}} />
-                   </div>
+                   <div style={spriteAperture}><div style={{...spriteSheet, backgroundImage:`url(${ASSETS.SPRITES})`}} /></div>
                 )}
               </div>
             )))}
@@ -206,61 +162,48 @@ export default function App() {
         </div>
       </div>
 
-      <div style={dashboardFooter}>
-        <div style={dPadGrid}>
-          <div /> <button onPointerDown={() => movePlayer('up')} className="dir-btn" style={dirBtn}>▲</button> <div />
-          <button onPointerDown={() => movePlayer('left')} className="dir-btn" style={dirBtn}>◀</button> 
-          <div style={compassCenter}>🧭</div> 
-          <button onPointerDown={() => movePlayer('right')} className="dir-btn" style={dirBtn}>▶</button>
-          <div /> <button onPointerDown={() => movePlayer('down')} className="dir-btn" style={dirBtn}>▼</button> <div />
+      <div style={footerStyle}>
+        <div style={dPadContainer}>
+          <div /> <button onPointerDown={() => movePlayer('up')} style={dirBtn}>▲</button> <div />
+          <button onPointerDown={() => movePlayer('left')} style={dirBtn}>◀</button> <div style={compass}>🧭</div> <button onPointerDown={() => movePlayer('right')} style={dirBtn}>▶</button>
+          <div /> <button onPointerDown={() => movePlayer('down')} style={dirBtn}>▼</button> <div />
         </div>
       </div>
 
       <style>{`
-        @keyframes scan { 0% { top: -5%; } 100% { top: 105%; } }
-        .scanner-line { position: absolute; width: 100%; height: 4px; background: rgba(0, 255, 13, 0.4); box-shadow: 0 0 15px #00ff0d; z-index: 10; pointer-events: none; animation: scan 4s linear infinite; }
-        .blueprint-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 5; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03)); background-size: 100% 3px, 3px 100%; opacity: 0.4; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        .intel-flag { animation: float 2s ease-in-out infinite; width: 70%; height: auto; border-radius: 2px; }
-        @keyframes leafDrift { 
-          0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
-          50% { opacity: 0.8; }
-          100% { transform: translate(10px, 10px) rotate(90deg); opacity: 0; }
-        }
-        .leaf { position: absolute; font-size: 0.6rem; pointer-events: none; z-index: 1; animation: leafDrift 3s infinite linear; }
-        .leaf-1 { top: 0; left: 5px; animation-delay: 0s; }
-        .leaf-2 { bottom: 5px; right: 0; animation-delay: 1.5s; }
-        .dir-btn:active { transform: translateY(2px) scale(0.95); background: #e3f2fd !important; }
+        @keyframes drift { 0% { transform: translate(0,0) rotate(0deg); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translate(10px,10px) rotate(90deg); opacity: 0; } }
+        .leaf, .petal { position: absolute; font-size: 0.6rem; animation: drift 3s infinite linear; pointer-events: none; }
+        .tile-content { position: relative; width: 100%; height: 100%; display: flex; justifyContent: center; alignItems: center; }
+        .leaf-1, .petal-1 { top: 0; left: 5px; } .leaf-2, .petal-2 { bottom: 5px; right: 0; animation-delay: 1.5s; }
+        .global-overlay { position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none; z-index: 20; overflow: hidden; }
+        .dot { position: absolute; width: 3px; height: 3px; border-radius: 50%; opacity: 0; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translate(0,-10vh); opacity:0; } 10% { opacity:0.6; } 100% { transform: translate(20vw, 110vh); opacity:0; } }
       `}</style>
     </div>
   );
 }
 
-// --- STYLES ---
-const decoLayer = { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'hidden' };
-const decoPiece = { position: 'absolute', width: '150px', height: '150px', backgroundImage: `url(${ASSETS.DECO})`, backgroundSize: '250%', opacity: 0.8, zIndex: 0 };
-const factOverlay = { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', zIndex: 100, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' };
-const factCard = { background: '#fff', padding: '20px', borderRadius: '15px', textAlign: 'center', boxShadow: '0 0 20px #ffd54f', border: '2px solid #ff8f00', maxWidth: '80%' };
-const factTitle = { color: '#ff8f00', fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '10px' };
-const factText = { color: '#333', fontSize: '1rem', lineHeight: '1.4' };
-const factCloseBtn = { marginTop: '15px', padding: '10px 25px', background: '#333', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 'bold' };
-const fullScreenCenter = { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#0d1117', fontFamily: 'sans-serif' };
-const premiumCard = { background: '#fff', padding: '40px', borderRadius: '40px', textAlign: 'center', width: '85%', maxWidth: '380px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' };
-const tagLine = { color: '#3949ab', fontWeight: 'bold', letterSpacing: '2px', fontSize: '0.7rem', marginBottom: '10px' };
-const titleStyle = { margin: '0 0 15px 0', fontSize: '1.8rem', color: '#1a237e' };
-const infoBox = { background: '#f0f2f5', padding: '15px', borderRadius: '20px', marginBottom: '25px' };
-const subtitleStyle = { color: '#555', margin: 0, fontSize: '0.9rem' };
-const goldBtn = { background: 'linear-gradient(180deg, #ffd54f 0%, #ff8f00 100%)', color: '#fff', border: 'none', padding: '15px 30px', borderRadius: '50px', fontWeight: 'bold', fontSize: '1rem', cursor: 'pointer', boxShadow: '0 5px 0 #b36200' };
-const gameLayout = { display: 'flex', flexDirection: 'column', height: '100dvh', background: '#0d1117', overflow: 'hidden', position: 'fixed', width: '100vw' };
-const dashboardHeader = { height: '15vh', backgroundImage: `url(${ASSETS.DASHBOARD})`, backgroundSize: '100% 100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '10px' };
-const gridWrapper = { flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' };
-const gridContainer = { border: '4px solid #222', borderRadius: '12px', overflow: 'hidden', position: 'relative' };
-const gridStyle = { display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', width: 'min(92vw, 42vh)', aspectRatio: '1/1', background: '#333' };
-const tileStyle = { width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', outline: '0.5px solid rgba(0,0,0,0.1)' };
-const spriteAperture = { width: '100%', height: '100%', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' };
-const spriteSheet = { position: 'absolute', width: '400%', height: '200%', backgroundImage: `url(${ASSETS.SPRITES})`, backgroundSize: '100% 100%', top: 0, left: 0, imageRendering: 'pixelated' };
-const dashboardFooter = { height: '35vh', backgroundImage: `url(${ASSETS.DASHBOARD})`, backgroundSize: '100% 100%', backgroundPosition: '0% 48%', display: 'flex', justifyContent: 'center', alignItems: 'center' };
-const glassHUD = { background: 'rgba(255,255,255,0.2)', padding: '5px 15px', borderRadius: '20px', color: '#fff', fontWeight: 'bold' };
-const dPadGrid = { display: 'grid', gridTemplateColumns: 'repeat(3, 65px)', gap: '8px' };
-const dirBtn = { width: '65px', height: '65px', borderRadius: '15px', background: '#fff', fontSize: '24px', border: 'none', boxShadow: '0 4px #ccc', transition: 'all 0.1s ease', userSelect: 'none', WebkitTapHighlightColor: 'transparent' };
-const compassCenter = { width: '65px', height: '65px', background: '#ffd54f', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '3px solid #ff8f00' };
+// --- CSS STYLES ---
+const fullScreenCenter = { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#0d1117' };
+const premiumCard = { background: '#fff', padding: '30px', borderRadius: '40px', textAlign: 'center', width: '92%', maxWidth: '420px' };
+const missionSelectorGrid = { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' };
+const missionCard = { background: '#f8f9fa', border: '1px solid #dee2e6', borderRadius: '15px', padding: '12px 5px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' };
+const gameLayout = { display: 'flex', flexDirection: 'column', height: '100dvh', width: '100vw', overflow: 'hidden', position: 'fixed' };
+const decoContainer = { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 };
+const decoPiece = { position: 'absolute', width: '180px', height: '180px', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', opacity: 0.5 };
+const headerStyle = { height: '12vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '10px', zIndex: 10 };
+const glassPill = { background: 'rgba(0,0,0,0.5)', padding: '10px 25px', borderRadius: '25px', color: '#fff', fontWeight: 'bold' };
+const gridWrapper = { flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 5 };
+const gridContainer = { border: '2px solid rgba(255,255,255,0.2)', borderRadius: '15px', overflow: 'hidden', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(5px)' };
+const gridInner = { display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', width: 'min(92vw, 48vh)', aspectRatio: '1/1' };
+const tileBase = { width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' };
+const spriteAperture = { width: '100%', height: '100%', overflow: 'hidden', position: 'relative' };
+const spriteSheet = { position: 'absolute', width: '400%', height: '200%', backgroundSize: '100% 100%', imageRendering: 'pixelated' };
+const footerStyle = { height: '35vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10 };
+const dPadContainer = { display: 'grid', gridTemplateColumns: 'repeat(3, 65px)', gap: '12px', background: 'rgba(255,255,255,0.1)', padding: '20px', borderRadius: '35px' };
+const dirBtn = { width: '65px', height: '65px', borderRadius: '18px', border: 'none', background: '#fff', fontSize: '24px' };
+const compass = { display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '28px' };
+const factOverlay = { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.85)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 100, padding: '20px' };
+const factCard = { background: '#fff', padding: '30px', borderRadius: '30px', textAlign: 'center' };
+const factText = { color: '#333', fontSize: '1.1rem', marginBottom: '20px' };
+const closeBtn = { padding: '12px 30px', background: '#1a237e', color: '#fff', border: 'none', borderRadius: '15px', fontWeight: 'bold', width: '100%' };
