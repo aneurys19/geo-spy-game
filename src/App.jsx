@@ -58,28 +58,33 @@ export default function App() {
         setMoveCount(m => m + 1);
 
         if (grid[r][c] === 4) {
-          const newScore = score + 10; setScore(newScore);
+          // --- FLAG CAPTURED LOGIC ---
+          const newScore = score + 10; 
+          setScore(newScore);
+          
           const factText = missions[currentLevel].facts[(newScore / 10) - 1];
-          setShowFact(factText); speakFact(factText);
+          setShowFact(factText); 
+          speakFact(factText);
           
           const newGrid = [...grid]; 
           newGrid[r] = [...newGrid[r]]; 
-          newGrid[r][c] = 0;
+          newGrid[r][c] = 0; // Remove flag from grid immediately
+          setGrid(newGrid);
           
           const flagsRemaining = newGrid.flat().filter(cell => cell === 4).length;
 
           if (flagsRemaining === 0) {
-            setGrid(newGrid);
+            // --- VICTORY DELAY ADDED HERE ---
             setTimeout(() => { 
-              speakFact("Mission Success!"); 
-              setGameState('WON');
-              const nextLevel = currentLevel + 1;
-              const newProgress = [...new Set([...unlockedMissions, nextLevel])];
-              setUnlockedMissions(newProgress);
-              localStorage.setItem('geospy_ninja_progress', JSON.stringify(newProgress));
-            }, 800);
-          } else {
-            setGrid(newGrid);
+              if (gameState !== 'WON') { 
+                speakFact("Mission Success!"); 
+                setGameState('WON');
+                const nextLevel = currentLevel + 1;
+                const newProgress = [...new Set([...unlockedMissions, nextLevel])];
+                setUnlockedMissions(newProgress);
+                localStorage.setItem('geospy_ninja_progress', JSON.stringify(newProgress));
+              }
+            }, 2500); // 2.5 second buffer
           }
         }
         return { r, c };
